@@ -1,0 +1,94 @@
+{
+  "entities": {
+    "blogs": {
+      "title": "Blog Posts",
+      "description": "Articles about healthy eating and lifestyle.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the blog post" },
+        "content": { "type": "string", "description": "Markdown content of the post" },
+        "author": { "type": "string", "description": "Name of the author" },
+        "authorUid": { "type": "string", "description": "UID of the author" },
+        "imageUrl": { "type": "string", "description": "Cover image URL" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["title", "content", "author", "authorUid", "createdAt"]
+    },
+    "recipes": {
+      "title": "Healthy Recipes",
+      "description": "Nutritious recipes for users.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "ingredients": { "type": "array", "items": { "type": "string" } },
+        "instructions": { "type": "string" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "fat": { "type": "number" },
+        "carbs": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["Oson", "O'rtacha", "Qiyin"] }
+      },
+      "required": ["title", "ingredients", "instructions", "calories"]
+    },
+    "users": {
+      "title": "User Profiles",
+      "description": "Private user data.",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "photoURL": { "type": "string" }
+      },
+      "required": ["email", "role"]
+    },
+    "jobs": {
+      "title": "Job Vacancies",
+      "description": "Open positions in the company.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "location": { "type": "string" },
+        "salary": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "type", "location"]
+    },
+    "settings": {
+      "title": "Site Settings",
+      "description": "Global configuration for the website.",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "contactPhone": { "type": "string" },
+        "address": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/blogs/{blogId}": {
+      "schema": "blogs",
+      "description": "Collection of blog posts"
+    },
+    "/recipes/{recipeId}": {
+      "schema": "recipes",
+      "description": "Collection of recipes"
+    },
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile documents"
+    },
+    "/jobs/{jobId}": {
+      "schema": "jobs",
+      "description": "Collection of job vacancies"
+    },
+    "/settings/{settingId}": {
+      "schema": "settings",
+      "description": "Global site settings"
+    }
+  }
+}

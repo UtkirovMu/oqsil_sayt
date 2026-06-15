@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Oqsil — AI Sog\u0027lom Ovqatlanish",
+  "description": "Oqsil — sun\u0027iy intellektga asoslangan shaxsiy ovqatlanish yordamchisi. Ovqat skaneri, statistika va AI maslahatlar.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
