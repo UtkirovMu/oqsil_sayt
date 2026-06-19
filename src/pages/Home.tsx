@@ -409,10 +409,32 @@ export default function Home() {
                 </button>
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="relative">
-              <div className="relative z-10 bg-white p-4 rounded-[3rem] shadow-2xl border border-slate-100 rotate-3 hover:rotate-0 transition-transform duration-500">
-                <img src="https://picsum.photos/seed/healthy-food/800/1000" alt="Healthy food app" className="rounded-[2.5rem] w-full h-auto" referrerPolicy="no-referrer" />
-              </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              className="relative flex justify-center items-center"
+            >
+              <motion.div 
+                animate={{ 
+                  y: [0, -20, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative z-10 max-w-lg w-full flex justify-center"
+              >
+                <img 
+                  src="/burger.png" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://img.icons8.com/3d-fluency/512/hamburger.png";
+                  }}
+                  alt="3D Burger" 
+                  className="w-[85%] h-auto drop-shadow-[0_25px_50px_rgba(34,197,94,0.25)] select-none pointer-events-none" 
+                  referrerPolicy="no-referrer" 
+                />
+              </motion.div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand/5 rounded-full blur-3xl -z-10" />
             </motion.div>
           </div>
